@@ -27,10 +27,13 @@ class TravelPackageSeeder extends Seeder
             $newTravelPackage->duration_days = $faker->randomNumber(2, false);
             $newTravelPackage->check_in = $faker->time();
             $newTravelPackage->check_out = $faker->time();
-            $newTravelPackage->outbound_flight_id = $faker->randomElement($flights);
-            $newTravelPackage->return_flight_id = $faker->randomElement($flights);
-            $newTravelPackage->price_euros = $faker->randomFloat(2);
+            $newTravelPackage->price_euros = $faker->randomFloat(1, 20, 30);
             $newTravelPackage->save();
+
+            $newTravelPackage->flights()->attach([
+                $faker->randomElement($flights) => ["outbound_or_return" => "outbound"],
+                $faker->randomElement($flights) => ["outbound_or_return" => "return"]
+            ]);
         }
     }
 }

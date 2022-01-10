@@ -23,11 +23,7 @@ class CreateTravelPackagesTable extends Migration
             $table->integer("duration_days")->required();
             $table->time("check_in")->required();
             $table->time("check_out")->required();
-            $table->bigInteger("outbound_flight_id")->unsigned();
-            $table->foreign("outbound_flight_id")->references("id")->on("flights");
-            $table->bigInteger("return_flight_id")->unsigned();
-            $table->foreign("return_flight_id")->references("id")->on("flights");
-            $table->decimal("price_euros")->required();
+            $table->float('price_euros', 8, 2)->required();
             $table->timestamps();
         });
     }
