@@ -15,8 +15,8 @@ class CreateAccommodationFacilitiesTable extends Migration
     {
         Schema::create('accommodation_facilities', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string("name")->required();
-            $table->string("address")->required();
+            $table->string("name");
+            $table->string("address");
             $table->timestamps();
         });
     }

@@ -12,4 +12,8 @@ class TravelPackage extends Model
         return $this->belongsToMany("App\Flight");
     }
 
+    public function accommodation_facility(){
+        return $this->belongsTo("App\AccommodationFacility");
+    }
+
 }

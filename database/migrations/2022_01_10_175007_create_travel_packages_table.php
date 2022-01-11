@@ -17,13 +17,13 @@ class CreateTravelPackagesTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger("accommodation_facility_id")->unsigned();
             $table->foreign("accommodation_facility_id")->references("id")->on('accommodation_facilities');
-            $table->string("title")->required();
-            $table->longText("description")->required();
-            $table->integer("max_guest")->required();
-            $table->integer("duration_days")->required();
-            $table->time("check_in")->required();
-            $table->time("check_out")->required();
-            $table->float('price_euros', 8, 2)->required();
+            $table->string("title");
+            $table->longText("description");
+            $table->integer("max_guest");
+            $table->integer("duration_days");
+            $table->time("check_in");
+            $table->time("check_out");
+            $table->float('price_euros', 8, 2);
             $table->timestamps();
         });
     }

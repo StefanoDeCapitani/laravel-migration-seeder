@@ -18,7 +18,7 @@ class CreateFlightTravelPackageTable extends Migration
             $table->foreign('flight_id')->references('id')->on('flights');
             $table->bigInteger('travel_package_id')->unsigned();
             $table->foreign('travel_package_id')->references('id')->on('travel_packages');
-            $table->string("outbound_or_return")->required();
+            $table->string("outbound_or_return");
         });
     }
 
